@@ -292,19 +292,21 @@ function preparingOrder(callback) {
   }, 3000);
 }
 
-function pickUpOrder() {
+function pickUpOrder(callback) {
   console.log("Delivery boy is on way to pickup order");
 
   setTimeout(() => {
     console.log("I have picked up the order");
+    callback();
   }, 3000);
 }
 
-function deliverOrder() {
+function deliverOrder(callback) {
   console.log("Your order is on the way.");
 
   setTimeout(() => {
-    console.log("Your order is delivered");
+    console.log("Your order is delivered successfully");
+    callback();
   }, 3000);
 }
 
@@ -316,3 +318,21 @@ placedOrder(() => {
     })
   })
 })
+
+
+//******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** */
+
+
+//?? Callback Hell :-
+
+// --> It is JS asynchronous programming where multiple callbacks are deeply nested within each other.
+// --> Each callback tries to also act as a higher order function simultaneously
+
+//?? Why is it happening :-
+// --> Because of asynchronous task
+
+
+//?? Issues :-
+// a) Readability
+// b) Hard to debug
+// c) Inversion of Control
